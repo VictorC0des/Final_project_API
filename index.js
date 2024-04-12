@@ -102,8 +102,8 @@ app.get('/countries/:name/languages', async (req, res) => {
     if (!country) {
       return res.status(404).json({ message: `Country with name ${name} not found` });
     }
-    const countryLanguages = await db.countryLanguage.findAll({ where: { country_id: country.id } });
-    const languages = await Promise.all(countryLanguages.map(cl => db.language.findOne({ where: { id: cl.languageId } })));
+    const countryLanguages = await db.countryLanguages.findAll({ where: { country_id: country.id } });
+    const languages = await Promise.all(countryLanguages.map(cl => db.languages.findOne({ where: { id: cl.language_id } })));
     res.json(languages);
   } catch (error) {
     res.status(500).json({ message: error.message });
