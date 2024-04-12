@@ -24,6 +24,7 @@ db.languages = models.Language;
 db.countries = models.Countries;
 db.capitals = models.Capitals;
 db.citySubdivisions = models.CitySubdivisions;
+db.states = models.States;
+db.municipalities = models.Municipalities
 db.countryLanguages = models.CountryLanguages;
-
 module.exports = db;

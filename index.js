@@ -38,10 +38,24 @@ app.get('/continents/:name/countries', async (req, res) => {
   }
 });
 
+app.get('/countries/:name/states', async (req, res) => {
+  try {
+    const { name } = req.params;
+    const country = await db.countries.findOne({ where: { name } });
+    if (!country) {
+      return res.status(404).json({ message: `Country with name ${name} not found` });
+    }
+    const states = await db.states.findAll({ where: { country_id: country.id } });
+    res.json(states);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 app.get('/states/:name/municipalities', async (req, res) => {
   try {
     const { name } = req.params;
-    const state = await db.state.findOne({ where: { name } });
+    const state = await db.states.findOne({ where: { name } });
     if (!state) {
       return res.status(404).json({ message: `State with name ${name} not found` });
     }

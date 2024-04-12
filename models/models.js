@@ -62,6 +62,39 @@ module.exports = (sequelize, Sequelize) => {
     freezeTableName: true,
   });
 
+  const States = sequelize.define('states', {
+    country_id: {
+      type: Sequelize.INTEGER,
+      references: {
+        model: 'country',
+        key: 'id'
+      },
+      onDelete: 'CASCADE'
+    },
+    name: Sequelize.STRING,
+    population: Sequelize.INTEGER
+  }, {
+    timestamps: false,
+    freezeTableName: true,
+  });
+
+
+  const Municipalities = sequelize.define('municipalities', {
+    name: Sequelize.STRING,
+    state_id: {
+      type: Sequelize.INTEGER,
+      references: {
+        model: 'states',
+        key: 'id'
+      },
+      onDelete: 'CASCADE'
+    },
+    population: Sequelize.INTEGER,
+  }, {
+    timestamps: false,
+    freezeTableName: true,
+  });
+
   const CountryLanguages = sequelize.define('countryLanguages', {
     country_id: {
       type: Sequelize.INTEGER,
@@ -87,5 +120,5 @@ module.exports = (sequelize, Sequelize) => {
   Countries.belongsToMany(Languages, { through: CountryLanguages, foreignKey: 'countryId' });
   Languages.belongsToMany(Countries, { through: CountryLanguages, foreignKey: 'languageId' });
 
-  return { Continents, Languages, Countries, Capitals, CitySubdivisions, CountryLanguages };
+  return { Continents, Languages, Countries, Capitals, CitySubdivisions,States, Municipalities, CountryLanguages };
 };
