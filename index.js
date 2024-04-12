@@ -21,6 +21,8 @@ Route("continents", "continents");
 Route("languages", "languages");
 Route("countries", "countries");
 Route("capitals", "capitals");
+Route("states", "states");
+Route("municipalities", "municipalities");
 Route("citySubdivisions", "citySubdivisions");
 Route("countryLanguages", "countryLanguages");
 
