@@ -1,59 +1,69 @@
-# proyectoFinal_API
+# Finalproject_API
 
-Este proyecto es una API REST construida con Node.js y Express, que proporciona operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para diferentes recursos.
+This project is a REST API built with Node.js and Express, which provides CRUD (Create, Read, Update, Delete) operations for different resources.
 
-## Comenzando
+## Getting started
 
-Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
+These instructions will allow you to get a working copy of the project on your local machine for development and testing purposes.
 
-### Pre-requisitos
+### Pre-requisites
 
-Necesitarás tener instalado Node.js y npm en tu máquina. Puedes descargarlos desde [aquí](https://nodejs.org/).
+You will need to have Node.js and npm installed on your PC. You can download them from [here](https://nodejs.org/).
 
-### Instalación
+### Installation
 
-1. Clona el repositorio
+1. Clone the repository
 ```bash
-git clone https://github.com/VictorC0des/proyectoFinal_API
+git clone https://github.com/VictorC0des/Final_project_API
 ```
 2. Navega hasta el directorio del proyecto
 ```bash
-cd proyectoFinal_API
+cd Finalproject_API
 ```
-3. Instala las dependencias
+3. Install the dependencies
 ```bash
 npm install
 ```
-4. Navega hasta el directorio del proyecto
+4. Create database
 ```bash
-Ejecuta el codigo de la BD llamado bd.sql en tu gestor de bases de datos, asegurate de cambiar los valores para autenticarte en tu bd.
+Run the DB code called BD.sql in your database manager, be sure to change the values to authenticate to your database.
 ```
-5. Inicia el servidor
+5. Fill the database
+```bash
+Run the DB code called inserts_proyect_example.sql in your database manager. These are just examples, you will be able to fill the database via the endpoints.
+```
+6. Start the server
 ```bash
 npm run dev
 ```
 
-## Uso
+## Use
 
-La API proporciona los siguientes endpoints:
+The API provides the following endpoints:
 
-- `GET /<recurso>`: Obtiene todos los elementos del recurso.
-- `POST /<recurso>`: Crea un nuevo elemento del recurso.
-- `PUT /<recurso>/:id`: Actualiza completamente un elemento del recurso.
-- `PATCH /<recurso>/:id`: Actualiza parcialmente un elemento del recurso.
-- `DELETE /<recurso>/:id`: Elimina un elemento del recurso.
+- `GET /<resource>`: Get all elements of the table.
+- `POST /<resource>`: Creates a new element in the table.
+- `PUT /<resource>/:id`: Completely updates an element in the table.
+- `PATCH /<resource>/:id`: Parcially updates an element in the table.
+- `DELETE /<resource>/:id`: Deletes an element of the table.
+- `GET /continents/:name/countries`: Retrieves all countries of a specific continent.
+- `GET /states/:name/municipalities`: Retrieves all municipalities of a specific state.
+- `GET /countries/:name/capital`: Retrieves the capital of a specific country.
+- `GET /countries/:name/population`: Retrieves the population of a specific country.
+- `GET /countries/:name/languages`: Retrieves all languages spoken in a specific country.
 
-Donde `<recurso>` es el nombre del recurso que deseas acceder.
+Where `<table>` is the the table name that you want access and `<table>`the name of the continent, state, or country you want to acces .
 
-Por ejemplo, para acceder al recurso "continents", puedes usar los siguientes endpoints:
+For example, to access the table "continents", you can use the following endpoints:
 
 - `GET /continents`
 - `POST /continents`
 - `PUT /continents/:id`
 - `PATCH /continents/:id`
 - `DELETE /continents/:id`
+  
+Replace :id with the actual ID of the continent you want to update or delete.
 
-## Construido con
-
-- [Node.js](https://nodejs.org/) - Entorno de ejecución para JavaScript
-- [Express](https://expressjs.com/) - Framework de Node.js
+## Built with:
+- [Node.js](https://nodejs.org/) - Execution environment for JavaScript
+- [Express](https://expressjs.com/) - Node.js framework
