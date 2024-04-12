@@ -20,7 +20,7 @@ db.sequelize = sequelize;
 
 const models = require("./models/models.js")(sequelize, Sequelize);
 db.continents = models.Continents;
-db.languages = models.Language;
+db.languages = models.Languages;
 db.countries = models.Countries;
 db.capitals = models.Capitals;
 db.citySubdivisions = models.CitySubdivisions;
