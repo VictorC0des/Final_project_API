@@ -33,7 +33,7 @@ module.exports = (sequelize, Sequelize) => {
     country_id: {
       type: Sequelize.INTEGER,
       references: {
-        model: 'country',
+        model: 'countries',
         key: 'id'
       },
       onDelete: 'CASCADE'
@@ -117,8 +117,8 @@ module.exports = (sequelize, Sequelize) => {
     freezeTableName: true,
   });
 
-  Countries.belongsToMany(Languages, { through: CountryLanguages, foreignKey: 'countryId' });
-  Languages.belongsToMany(Countries, { through: CountryLanguages, foreignKey: 'languageId' });
+  Countries.belongsToMany(Languages, { through: CountryLanguages, foreignKey: 'country_id' });
+  Languages.belongsToMany(Countries, { through: CountryLanguages, foreignKey: 'language_id' });
 
   return { Continents, Languages, Countries, Capitals, CitySubdivisions,States, Municipalities, CountryLanguages };
 };
