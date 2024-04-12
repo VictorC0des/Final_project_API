@@ -52,7 +52,8 @@ The API provides the following endpoints:
 - `GET /countries/:name/population`: Retrieves the population of a specific country.
 - `GET /countries/:name/languages`: Retrieves all languages spoken in a specific country.
 
-Where `<table>` is the the table name that you want access and `<name>`the name of the continent, state, or country you want to acces .
+Where `<table>` is the the table name that you want access and `<name>`the name of the continent, state, or country you want to access.
+
 
 For example, to access the table "continents", you can use the following endpoints:
 
